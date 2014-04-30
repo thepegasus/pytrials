@@ -1,12 +1,16 @@
 #/usr/bin/python
-import Tkinter
+from Tkinter import *
 import tkMessageBox
-top=Tkinter.Tk()
+top=Tk()
 
 def helloCallBack():
-    tkMessageBox.showinfo("Hello Python", "Hello World")
+   tkMessageBox. showinfo("Hello Python", "Hello World")
 
-B=Tkinter.Button(top, text="Click Me", command=helloCallBack)
+var=StringVar()
+label=Label(top, textvariable=var, relief=RAISED)
+var.set("Hey! How are you doing?")
+B=Button(top, text="Click Me", command=helloCallBack)
 B.pack()
+label.pack()
 
 top.mainloop()
