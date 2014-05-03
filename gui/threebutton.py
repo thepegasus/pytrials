@@ -11,6 +11,7 @@ class MyApp:
         self.button1["background"]="green"
         self.button1.pack(side=LEFT)
         self.button1.bind("<Button-1>", self.button1Click)
+        self.button1.focus_force()
         
         self.button2=Button(self.myContainer1)
         self.button2.configure(text="Off to join the circus")
@@ -19,11 +20,11 @@ class MyApp:
         self.button2.bind("<Button-1>", self.button2Click)
         self.button2.bind("<Return>", self.button2Click)
         
-        self.button3=Button(self.myContainer1)
+        self.button3=Button(self.myContainer1, command=self.button3Click)
         self.button3.configure(text="Join me?", background="cyan")
         self.button3.pack(side=BOTTOM)
         
-        self.button4=Button(self.myContainer1, text="Good bye!", background="red")
+        self.button4=Button(self.myContainer1, text="Good bye!", background="red", command=self.button4Click)
         self.button4.pack(side=LEFT)
 
     def button1Click(self, event):
@@ -34,7 +35,11 @@ class MyApp:
     def button2Click(self, event):
         report_event(event)
 #        self.myParent.destroy()
-
+    def button3Click(self):
+        print "Button3Click event handler"
+    def button4Click(self):
+        print "Button4Click event handler"
+        
 def report_event(event):
     """Print a description of an event based on its attributes.
     """
