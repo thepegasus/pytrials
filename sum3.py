@@ -14,4 +14,4 @@ def sum2(nums):
   else:
     sumb=0
   return sumb
-  
+ 
